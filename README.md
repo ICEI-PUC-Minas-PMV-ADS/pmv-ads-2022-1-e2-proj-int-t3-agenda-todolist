@@ -1,23 +1,26 @@
 # TÍTULO DO PROJETO
 
-`CURSO`
+`Analise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Eixo 2 - Projeto: Desenvolvimento de uma Aplicação Interativa - Turma 03 - 2022/1`
 
-`SEMESTRE`
+`Segundo semestre`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Em um mundo conectado, dinâmico e muitas demandas, otimizar o tempo e ser efetivo é cada vez mais importante, seja na vida pessoal ou no trabalho. É fácil perceber que existem centenas de aplicativos e outras ferramentas que existem para atacar a organização de tarefas. 
+A imensa maioria dos aplicativos de gestão de tarefas seguem a tendência de serem caros e difíceis para gerenciar tanto a vida pessoal quanto a vida profissional, deixando assim uma lacuna para aplicativos simples e gratuitos
+
+A complexidade dos aplicativos de organização tem dificultado a eficiência e agilidade das equipes. Muitas até mesmo não utilizam aplicações para gerenciar tarefas, ou o fazem de forma errada, resultando em um baixo desempenho do time e até mesmo a falta de comprometimento, ou do esquecimento na realização de tarefas. 
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Mariana Rodrigues de Souza
+* Raquel Lins da Mata
+* Vinicius Monteiro Fortino
+* Lucas
 
 ## Orientador
 
-* Nome completo do professor 1
+* Carlos Alberto Marques Pietrobon
 
 ## Instruções de utilização
 
