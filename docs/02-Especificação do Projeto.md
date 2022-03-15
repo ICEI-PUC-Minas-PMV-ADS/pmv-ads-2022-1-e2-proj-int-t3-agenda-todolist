@@ -1,10 +1,5 @@
 # Especificações do Projeto
-
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+A definição exata do problema e os pontos mais relevantes a serem tratados neste projeto foi consolidada com a participação dos usuários em um trabalho de imersão feita pelos membros da equipe a partir da observação dos usuários em seu local natural e por meio de entrevistas. Os detalhes levantados nesse processo foram consolidados na forma de personas e histórias de usuários. 
 
 ## Personas
 
@@ -23,22 +18,19 @@ Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos 
 Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
 
 ## Histórias de Usuários
-
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
-
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+| Amanda Oliveira                                                                                       |                                                             |                                                                                                                                                                                                                                                                                                                      |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Idade**: 20<br>**Ocupação**: mãe e enfermeira, trabalha em um hospital de plantão 3 dias da semana. | Aplicativos: <br><br>- Instagram <br>- Whatsapp             | Motivações:<br><br>- “Queria um aplicativo que me lembrasse das tarefas que tenho ao longo da semana, para que não esquecesse de nada por passar a maior parte do dia ocupada.”                                                                                                                                      |
+| Roberto Silva                                                                                         |                                                             |                                                                                                                                                                                                                                                                                                                      |
+| Idade: 18<br>Ocupação: Estudante do ensino médio e vestibulando.                                      | Aplicativos:<br><br>- Instagram<br>- Whatapp<br>- Facebook  | Motivações:<br><br>- “Como estudante, queria uma aplicação que me ajudasse a organizar meus estudos, e que me lembrasse dos horários e dias das minhas provas.”                                                                                                                                                      |
+| Julieta Khalir                                                                                        |                                                             |                                                                                                                                                                                                                                                                                                                      |
+| Idade: 40<br>Ocupação: Médica Veterinária, trabalha em uma clínica durante meio de semana.            | Aplicativos:<br><br>- Instagram<br>- Whatsapp               | Motivações:<br><br>- “Sou muito desorganizada com papelada. Queria um aplicativo que me ajudasse a organizar os horarios dos meus clientes e dos meus intervalos, sem precisar carregar uma agenda por ai.”                                                                                                          |
+| Cláudio Pereira                                                                                       |                                                             |                                                                                                                                                                                                                                                                                                                      |
+| Idade: 38<br>Ocupação: SCRUM Master em um banco.                                                      | Aplicativos:<br><br>- Linkedin<br>- Whatsapp<br>- Instagram | Motivações:<br><br>- “Há muita correria para entrega de tarefas, e confusão com as datas, tasks e reuniões. Queria um aplicativo onde todos os desenvolvedores da equipe pudessem acessar, e ver simultaneamente as tarefas a ser concluída e as datas.”                                                             |
+| Brenda Ferreira                                                                                       |                                                             |                                                                                                                                                                                                                                                                                                                      |
+| Idade: 15 <br>Ocupação: Estudante do ensino fundamental                                               | Aplicativos:<br><br>- Instagram<br>- Whatsapp               | Motivações:<br><br>- “Sou muito avoada, sempre tento manter uma rotina de estudos e afazeres de casa, mas sempre esqueço de reescrever o que tenho que fazer. Queria um aplicativo onde eu pudesse fazer minha rotina e que ela resetasse no dia seguinte, para poder fazer novamente.”                              |
+| Lucas Mattos                                                                                          |                                                             |                                                                                                                                                                                                                                                                                                                      |
+| Idade: 21 <br>Ocupação: Cursando Ensino Superior em Administração, e trabalha em um escritório.       | Aplicativos:<br><br>- Whatsapp<br>- Instagram               | Motivações:<br><br>- Eu estudo EAD e trabalho também. Tenho liberdade para estudar no escritório, mas eu perco o horario das aulas na maioria das vezes. Queria um aplicativo que me lembrasse o horario das aulas, que aulas seriam e que pudesse colocar um check nessas aulas, para saber que não perdi nenhuma.” |
 
 ## Requisitos
 
@@ -46,48 +38,34 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos Funcionais
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+| ID    | Descrição                                                                                                                  | Prioridade |
+| ----- | -------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| RF-01 | A aplicação deverá ser capaz de cadastrar tarefas do usuário com descrição e data de entrega                               | ALTA       |
+| RF-02 | A aplicação deverá ser capaz permitir que um usuário tenha colaboradores no seu grupo de trabalho                          | ALTA       |
+| RF-02 | A aplicação deverá ser capaz comportar dois tipos de usuário em um projeto, um usuário colaborador e outro usuário gerente | ALTA       |
+| RF-03 | Ao acessar a aplicação o usuário poderá ver uma lista de atividades a serem feitas, mostrando em vermelho as atrasadas     | ALTA       |
+| RF-04 | A aplicação poderá mostrar um calendário com todas as tarefas cadastradas pro mês em evidencia                             | MÉDIA      |
+| RF-05 | A aplicação deverá permitir que cada tarefa tenha uma subtarefa                                                            | BAIXA      |
+| RF-06 | A aplicação deverá permitir o usuário fazer login                                                                          | ALTA       |
+
 
 ### Requisitos não Funcionais
 
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+| ID     | Descrição                                                     | Prioridade |
+| ------ | ------------------------------------------------------------- | ---------- |
+| RNF-01 | O código da aplicação deverá estar publicado no github da PUC | ALTA       |
+| RNF-02 | O site da aplicação deverá ser responsivo                     | BAIXA      |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
 
-|ID| Restrição                                             |
-|--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+| ID    | Descrição                                                                                                 | Prioridade |
+| ----- | --------------------------------------------------------------------------------------------------------- | ---------- |
+| RE-01 | O projeto deverá ser entregue no final do semestre letivo, não podendo extrapolar a data final de entrega | ALTA       |
+| RE-02 | O aplicativo deve se restringir às tecnologias básicas da Web no Frontend                                 | ALTA       |
+| RE-03 | A equipe não pode subcontratar o desenvolvimento do trabalho.                                             | ALTA       |
 
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
