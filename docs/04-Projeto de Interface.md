@@ -9,7 +9,9 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
 
 ## Diagrama de Fluxo
 
-O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamente a indicação dos principais elementos de interface - tais como menus e acessos - e funcionalidades, tais como editar, pesquisar, filtrar, configurar - e a conexão entre esses boxes a partir do processo de interação. Você pode ver mais explicações e exemplos https://www.lucidchart.com/blog/how-to-make-a-user-flow-diagram.
+O diagrama de fluxo pode ser desenvolvido com “boxes” que possuem internamente a indicação dos principais elementos de interface - tais como menus e acessos - e funcionalidades, tais como editar, pesquisar, filtrar, configurar - e a conexão entre esses boxes a partir do processo de interação. 
+
+Nosso fluxo de usuário é minimalista assim como o aplicativo em si, para que não seja complicado de usar e acessível até as pessoas que não possuem tanto conhecimento de tecnologia.
 
 
 ![Flow](https://user-images.githubusercontent.com/83349744/161992396-22235b86-5845-44f9-9cc6-acd606afa956.png)
