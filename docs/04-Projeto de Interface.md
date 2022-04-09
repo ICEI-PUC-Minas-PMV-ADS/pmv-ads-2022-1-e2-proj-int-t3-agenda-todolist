@@ -16,9 +16,9 @@ Nosso fluxo de usuário é minimalista assim como o aplicativo em si, para que n
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
 
-As telas do sistema possuem uma estrutura comum que consiste existem 3 grandes blocos, descritos a seguir. São eles:
-⦁	Cabeçalho - local onde está disposto o logo e navegação principal do site;
-⦁	Conteúdo - apresenta as equipes e as tarefasda equipe tela em questão;
+As telas do sistema possuem uma estrutura comum que consiste existem 3 grandes blocos, descritos a seguir. São eles: <br>
+⦁	Cabeçalho - local onde está disposto o logo e navegação principal do site; <br>
+⦁	Conteúdo - apresenta as equipes e as tarefasda equipe tela em questão; <br>
 ⦁	Barra lateral - apresenta os elementos de navegação secundária, como os membros, configurações, e botão de adicione.
 
 ### Tela - Início
