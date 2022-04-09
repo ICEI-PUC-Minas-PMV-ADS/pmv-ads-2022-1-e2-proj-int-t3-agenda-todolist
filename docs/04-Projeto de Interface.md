@@ -1,8 +1,6 @@
 
 # Projeto de Interface
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
-
 Nosso projeto foi feito com a preocupação de ser um sistema minimalista, fácil de entender, ágil e que necessite de poucos requirimentos do usuário.
 Adaptamos de acordo com os nossos requisitos, encontrador em nossa <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
 
