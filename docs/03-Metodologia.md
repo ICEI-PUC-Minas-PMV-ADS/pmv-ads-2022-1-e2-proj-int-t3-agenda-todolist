@@ -3,13 +3,25 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).  OBS
+Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu propósito é apresentada na lista que segue.
+
+Repositório de código fonte GitHub https: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist
+
+Documentos do projeto: https://www.dropbox.com/scl/fi/icw2r3n3xl59z8rig1dcd/Doc-Github.paper?dl=0&oref=e&rlkey=5e0p83ihsxh3q9lvnf6uwlarq
+
+Projeto de Interface e Wireframes: https://www.figma.com/
+
+Gerenciamento do Projeto: https://www.dropbox.com/scl/fi/icw2r3n3xl59z8rig1dcd/Doc-Github.paper?dl=0&oref=e&rlkey=5e0p83ihsxh3q9lvnf6uwlarq
+
+Para organização e distribuição das tarefas do projeto, a equipe está utilizando o Dropbox estruturado com as coisas que devem ser feitas e quem vai fazer determinada tarefa. 
+
+
 
 ## Controle de Versão
 
 A ferramenta de controle de versão adotada no projeto foi o
 [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
-foi utilizado para hospedagem do repositório.
+foi utilizado para hospedagem do repositório e versionamento de código.
 
 O projeto segue a seguinte convenção para o nome de branches:
 
@@ -26,7 +38,8 @@ etiquetas:
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
 
-Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
+A escolha da ferramenta foi feita feita pelo professor, conforme painel da faculdade.
+Como não usamos tag's para versionamento, fazemos o commit direto no GitHub, usando o gitFlow. 
 
 > **Links Úteis**:
 > - [Tutorial GitHub](https://guides.github.com/activities/hello-world/)
@@ -41,10 +54,14 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 Apresente a divisão de papéis entre os membros do grupo.
 
-> **Links Úteis**:
-> - [11 Passos Essenciais para Implantar Scrum no seu 
-> Projeto](https://mindmaster.com.br/scrum-11-passos/)
-> - [Scrum em 9 minutos](https://www.youtube.com/watch?v=XfvQWnRgxG0)
+Mariana: Documentação da metodologia 
+
+Raquel: Diagrama de classes, diagrama de fluxo e wireframes interativos 
+
+Vinicius: Plano de testes de software, planos de testes de usabilidade e modelo ER e esquema relacional
+
+Lucas: 
+
 
 ### Processo
 
@@ -54,7 +71,6 @@ Coloque  informações sobre detalhes da implementação do Scrum seguido pelo g
 > - [Project management, made simple](https://github.com/features/project-management/)
 > - [Sobre quadros de projeto](https://docs.github.com/pt/github/managing-your-work-on-github/about-project-boards)
 > - [Como criar Backlogs no Github](https://www.youtube.com/watch?v=RXEy6CFu9Hk)
-> - [Tutorial Slack](https://slack.com/intl/en-br/)
 
 ### Ferramentas
 
@@ -73,5 +89,7 @@ necessidades da nossa solução.
 Liste quais ferramentas foram empregadas no desenvolvimento do projeto, justificando a escolha delas, sempre que possível.
  
 > **Possíveis Ferramentas que auxiliarão no gerenciamento**: 
-> - [Slack](https://slack.com/)
+> - [Teams](https://www.microsoft.com/pt-br/microsoft-teams/log-in)
 > - [Github](https://github.com/)
+> - [Dropbox](https://www.dropbox.com/scl/fi/icw2r3n3xl59z8rig1dcd/Doc-Github.paper?dl=0&rlkey=5e0p83ihsxh3q9lvnf6uwlarq)
+> - [Figma](https://www.figma.com/)
