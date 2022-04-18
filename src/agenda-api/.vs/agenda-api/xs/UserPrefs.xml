@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{D344EBC2-40FD-4024-8E0A-D94C8EC44312}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Program.cs">
+    <Files>
+      <File FileName="agenda-api/Controllers/WeatherForecastController.cs" Line="26" Column="18" />
+      <File FileName="agenda-api/Program.cs" Line="20" Column="44" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="agenda-api" expanded="True">
+            <Node name="agenda-api" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.agenda-api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
