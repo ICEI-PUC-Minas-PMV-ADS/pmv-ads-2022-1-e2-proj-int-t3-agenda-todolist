@@ -5,7 +5,6 @@ namespace agenda_api.Entities
 {
     public class BaseEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string Id { get; set; }
+        public int Id { get; set; }
     }
 }

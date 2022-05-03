@@ -42,5 +42,38 @@ namespace agenda_api.Services
 
             return taskListk;
         }
+
+        public Task GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateTask(int id, Task task)
+        {
+            try
+            {
+                _taskRepository.UpdateTask(id, task);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return task;
+        }
+
+        public int DeleteTask(int id)
+        {
+            try
+            {
+                _taskRepository.DeleteTask(id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return id;
+        }
     }
 }

@@ -20,18 +20,56 @@ namespace agenda_api.Repository
             return ConvertToList<T>(dataTable);
         }
 
-        public void insertData(string parameters, string values)
+        public int insertData(string parameters, string values)
         {
+            int resultId;
             string baseQuery = $"Insert Into {_tableName}({parameters}) values({values})";
             DbConnection dbConnection = new DbConnection();
             try
             {
-                dbConnection.MakeQuery(baseQuery);
+                resultId = dbConnection.MakeQuery(baseQuery);
             }
             catch(Exception e)
             {
                 throw e;
             }
+
+            return resultId;
+        }
+
+
+        public int updateData(int id, string values)
+        {
+            int resultId;
+            string baseQuery = $"Update {_tableName} Set {values} Where id= {id}";
+            DbConnection dbConnection = new DbConnection();
+            try
+            {
+                resultId = dbConnection.MakeQuery(baseQuery);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return resultId;
+        }
+
+        public int deleteData(string id)
+        {
+            int resultId;
+            string baseQuery = $"Delete From {_tableName} WHERE Id={id}";
+            DbConnection dbConnection = new DbConnection();
+            try
+            {
+                resultId = dbConnection.MakeQuery(baseQuery);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return resultId;
         }
 
         private static List<T> ConvertToList<T>(DataTable dataTable)

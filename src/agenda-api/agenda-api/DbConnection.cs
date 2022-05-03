@@ -54,14 +54,15 @@ namespace agenda_api
             return dataTable;
         }
 
-        public void MakeQuery(string cmd)
+        public int MakeQuery(string cmd)
         {
+            int resultId;
             try
             {
                 _con.Open();
                 using (NpgsqlCommand npgsqlCommand = new NpgsqlCommand(cmd, _con))
                 {
-                    npgsqlCommand.ExecuteNonQuery();
+                    resultId = npgsqlCommand.ExecuteNonQuery();
                 }
             }
             catch (NpgsqlException ex)
@@ -77,6 +78,7 @@ namespace agenda_api
                 _con.Close();
             }
 
+            return resultId;
         }
 
     }

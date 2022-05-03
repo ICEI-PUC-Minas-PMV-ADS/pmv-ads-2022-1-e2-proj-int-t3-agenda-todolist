@@ -9,6 +9,8 @@ using agenda_api.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Web;
+using agenda_api.Entities;
 
 namespace agenda_api.Controllers
 {
@@ -27,7 +29,7 @@ namespace agenda_api.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
-        public IEnumerable<Task> Get()
+        public ActionResult<List<Task>> Get()
         {
             List<Task> taskList = new List<Task>();
             try
@@ -36,29 +38,55 @@ namespace agenda_api.Controllers
             }
             catch (Exception e)
             {
+                return NotFound();
             }
 
             return taskList;
         }
 
         [HttpPost]
-        public HttpResponseMessage Post(Task task)
+        [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
+        public ActionResult<Task> Post(Task task)
         {
             try
             {
-                _taskService.SaveTask(task);
+                return _taskService.SaveTask(task);
             }
             catch(Exception e)
             {
-                HttpResponseMessage response2 = new HttpResponseMessage(HttpStatusCode.BadRequest);
-                response2.Content = new StringContent(e.Message, Encoding.Unicode);
-                return response2;
+                return BadRequest(e);
             }
 
-            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-            response.Content = new StringContent("hello", Encoding.Unicode);
+        }
 
-            return response;
+        [HttpPost("{id}")]
+        [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
+        public ActionResult<Task> Post(int id, Task task)
+        {
+            try
+            {
+                return _taskService.UpdateTask(id, task);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
+        public ActionResult<int> Delete(int id)
+        {
+            try
+            {
+                return _taskService.DeleteTask(id);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+
         }
     }
 }
