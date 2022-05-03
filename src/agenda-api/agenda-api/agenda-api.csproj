@@ -6,4 +6,33 @@
   </PropertyGroup>
 
 
+  <ItemGroup>
+    <None Remove="models\" />
+    <None Remove="System.Memory.Data" />
+    <None Remove="EntityFramework" />
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Interfaces\" />
+    <None Remove="Interfaces\Repository\" />
+    <None Remove="Interfaces\Services\" />
+    <None Remove="Services\" />
+    <None Remove="Repository\" />
+    <None Remove="Microsoft.EntityFrameworkCore.InMemory" />
+    <None Remove="System.Data.SqlClient" />
+    <None Remove="Npgsql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Interfaces\Repository\" />
+    <Folder Include="Interfaces\Services\" />
+    <Folder Include="Services\" />
+    <Folder Include="Repository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controllers\WeatherForecastController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <PackageReference Include="Npgsql" Version="6.0.4" />
+  </ItemGroup>
 </Project>

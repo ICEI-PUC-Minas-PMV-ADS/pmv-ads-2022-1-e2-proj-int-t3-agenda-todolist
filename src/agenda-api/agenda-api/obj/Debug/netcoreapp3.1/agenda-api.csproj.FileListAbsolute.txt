@@ -18,3 +18,13 @@
 /Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/obj/Debug/netcoreapp3.1/agenda-api.dll
 /Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/obj/Debug/netcoreapp3.1/agenda-api.pdb
 /Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/obj/Debug/netcoreapp3.1/agenda-api.genruntimeconfig.cache
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/Npgsql.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/System.Data.SqlClient.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/System.Diagnostics.DiagnosticSource.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/runtimes/win-arm64/native/sni.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/runtimes/win-x64/native/sni.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/runtimes/win-x86/native/sni.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/bin/Debug/netcoreapp3.1/runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll
+/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/obj/Debug/netcoreapp3.1/agenda-api.csproj.CopyComplete

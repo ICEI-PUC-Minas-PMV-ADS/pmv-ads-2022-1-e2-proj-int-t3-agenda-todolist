@@ -1,27 +1,26 @@
 ﻿<Properties StartupConfiguration="{D344EBC2-40FD-4024-8E0A-D94C8EC44312}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Controllers/TaskController.cs">
     <Files>
-      <File FileName="agenda-api/Controllers/WeatherForecastController.cs" Line="26" Column="18" />
-      <File FileName="agenda-api/Program.cs" Line="20" Column="44" />
+      <File FileName="agenda-api/Repository/BaseRepository.cs" Line="21" Column="10" />
+      <File FileName="agenda-api/Controllers/TaskController.cs" Line="16" Column="49" />
+      <File FileName="agenda-api/Services/TaskService.cs" />
+      <File FileName="agenda-api/Repository/TaskRepository.cs" Line="4" Column="1" />
+      <File FileName="agenda-api/Entities/Task.cs" Line="16" Column="33" />
+      <File FileName="agenda-api/DbSchema.cs" Line="30" Column="43" />
+      <File FileName="agenda-api/Interfaces/Services/ITaskService.cs" Line="10" Column="6" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="agenda-api" expanded="True">
-            <Node name="agenda-api" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Program.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.agenda-api PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/Repository/TaskRepository.cs" relfile="agenda-api/Repository/TaskRepository.cs" line="30" column="1" />
+      <Breakpoint file="/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/Controllers/TaskController.cs" relfile="agenda-api/Controllers/TaskController.cs" line="56" column="1" />
+      <Breakpoint file="/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/Repository/BaseRepository.cs" relfile="agenda-api/Repository/BaseRepository.cs" line="25" column="1" />
+      <Breakpoint file="/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/Repository/BaseRepository.cs" relfile="agenda-api/Repository/BaseRepository.cs" line="29" column="1" />
+      <Breakpoint file="/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/Repository/BaseRepository.cs" relfile="agenda-api/Repository/BaseRepository.cs" line="33" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

@@ -9,16 +9,12 @@ namespace agenda_api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TaskController : ControllerBase
+    public class HealthController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "C#", "Javascript", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
-        private readonly ILogger<TaskController> _logger;
+        private readonly ILogger<HealthController> _logger;
 
-        public TaskController(ILogger<TaskController> logger)
+        public HealthController(ILogger<HealthController> logger)
         {
             _logger = logger;
         }
@@ -26,9 +22,7 @@ namespace agenda_api.Controllers
         [HttpGet]
         public string Get()
         {
-            return "oi";
+            return "OK";
         }
-
-
     }
 }
