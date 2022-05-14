@@ -32,15 +32,18 @@ namespace agenda_api.Controllers
         public ActionResult<List<Task>> Get()
         {
             List<Task> taskList = new List<Task>();
-            try
+            try // tentar/tentativa
             {
                 taskList = _taskService.GetAll();
             }
-            catch (Exception e)
+            catch (Exception e) // pegar o erro
             {
                 return NotFound();
             }
-
+            if(taskList.Count == 0)
+            {
+                return NotFound();
+            }
             return taskList;
         }
 
