@@ -1,17 +1,17 @@
-const API_HIST = "http://localhost:5000"
+import { useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
-const axios = require('axios');
+function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </>
+  );
+}
 
-// Make a request for a user with a given ID
-axios.get(`${API_HIST}/weatherforecast`)
-  .then(function (response) {
-    // handle success
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .then(function () {
-    // always executed
-  });
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
