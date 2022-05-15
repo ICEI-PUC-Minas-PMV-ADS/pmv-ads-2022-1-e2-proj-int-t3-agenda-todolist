@@ -7,7 +7,6 @@ namespace agenda_api
 
         public static void INIT()
         {
-            createAccountTypeEnumTable();
             createAccountTable();
             createTaskTable();
             createBoardTable();
@@ -15,7 +14,7 @@ namespace agenda_api
 
         private static void createAccountTypeEnumTable()
         {
-            string taskTableQUery = "CREATE TYPE UserType AS ENUM ('admin', 'user');";
+            string taskTableQUery = "CREATE TYPE IF NOT EXISTS UserType AS ENUM ('admin', 'user');";
 
             _dbConnection.MakeQuery(taskTableQUery);
         }
@@ -42,7 +41,7 @@ namespace agenda_api
                 "Name VARCHAR ( 50 ) UNIQUE NOT NULL," +
                 "Description VARCHAR ( 50 ) NOT NULL," +
                 "TodoDate TIMESTAMP," +
-                "CreatedDate TIMESTAMP NOT NULL" +
+                "CreatedDate TIMESTAMP NOT NULL," +
                 "user_id integer," +
                 "FOREIGN KEY (user_id) REFERENCES Accounts (user_id)" + 
                 ")";

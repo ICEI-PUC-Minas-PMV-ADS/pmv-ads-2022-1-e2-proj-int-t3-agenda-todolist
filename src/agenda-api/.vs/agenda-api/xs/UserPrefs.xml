@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{D344EBC2-40FD-4024-8E0A-D94C8EC44312}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Controllers/UserController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Controllers/Login.cs">
     <Files>
-      <File FileName="agenda-api/Services/TaskService.cs" Line="12" Column="8" />
-      <File FileName="agenda-api/Controllers/BoardController.cs" Line="1" Column="1" />
-      <File FileName="agenda-api/Controllers/Login.cs" Line="1" Column="1" />
-      <File FileName="agenda-api/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="agenda-api/DbConnection.cs" Line="1" Column="1" />
+      <File FileName="agenda-api/Program.cs" Line="17" Column="10" />
+      <File FileName="agenda-api/Startup.cs" Line="19" Column="6" />
+      <File FileName="agenda-api/Controllers/Login.cs" Line="10" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

@@ -1,9 +1,9 @@
 ﻿using System;
 namespace agenda_api.Controllers
 {
-    public class Login
+    public class LoginController
     {
-        public Login()
+        public LoginController()
         {
         }
     }
