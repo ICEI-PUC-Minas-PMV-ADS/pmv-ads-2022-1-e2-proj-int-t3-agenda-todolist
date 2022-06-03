@@ -16,7 +16,7 @@ A complexidade dos aplicativos de organização tem dificultado a eficiência e 
 * Mariana Rodrigues de Souza
 * Raquel Lins da Mata
 * Vinicius Monteiro Fortino
-* Lucas
+* Lucas Junio dos Santos
 
 ## Orientador
 
