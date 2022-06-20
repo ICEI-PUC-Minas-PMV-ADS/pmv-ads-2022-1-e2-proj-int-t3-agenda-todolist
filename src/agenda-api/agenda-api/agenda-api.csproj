@@ -31,6 +31,7 @@
   <ItemGroup>
     <Compile Remove="Controllers\WeatherForecastController.cs" />
     <Compile Remove="Controllers\TaskController %28copiar%29.cs" />
+    <Compile Remove="Controllers\Login.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />

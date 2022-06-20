@@ -1,10 +1,7 @@
 ﻿<Properties StartupConfiguration="{D344EBC2-40FD-4024-8E0A-D94C8EC44312}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Controllers/Login.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Controllers/BoardController.cs">
     <Files>
-      <File FileName="agenda-api/DbConnection.cs" Line="1" Column="1" />
-      <File FileName="agenda-api/Program.cs" Line="17" Column="10" />
-      <File FileName="agenda-api/Startup.cs" Line="19" Column="6" />
-      <File FileName="agenda-api/Controllers/Login.cs" Line="10" Column="2" />
+      <File FileName="agenda-api/Controllers/BoardController.cs" Line="15" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,12 +9,21 @@
           <Node name="agenda-api" expanded="True">
             <Node name="agenda-api" expanded="True">
               <Node name="Controllers" expanded="True">
-                <Node name="Login.cs" selected="True" />
+                <Node name="BoardController.cs" selected="True" />
               </Node>
+              <Node name="Entities" expanded="True" />
+              <Node name="Interfaces" expanded="True">
+                <Node name="Repository" expanded="True" />
+                <Node name="Services" expanded="True" />
+              </Node>
+              <Node name="Repository" expanded="True" />
               <Node name="Services" expanded="True" />
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

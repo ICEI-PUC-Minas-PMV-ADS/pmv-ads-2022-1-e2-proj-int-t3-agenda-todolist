@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using agenda_api.Entities;
 using agenda_api.Interfaces.Repository;
 
 namespace agenda_api.Repository
@@ -7,7 +8,7 @@ namespace agenda_api.Repository
     public class TaskRepository : BaseRepository<Task>, ITaskRepository
     {
         private string TABLENAME = "Task";
-        private string TASKPARAMETERS = "Name, Description, CreatedDate, TodoDate";
+        private string PARAMETERS = "Name, Description, CreatedDate, TodoDate";
 
         public TaskRepository()
         {
@@ -19,9 +20,21 @@ namespace agenda_api.Repository
             return base.getData("*");
         }
 
-        public Task GetTaskByID(string id)
+        public List<Task> GetAllTasksByUser(int userId)
         {
-            string condition = $"WHERE ID={id}";
+            string condition = $"WHERE user_id='{userId}'";
+            return base.getData("*", condition);
+        }
+
+        public List<Task> GetAllTasksByBoard(int boardId)
+        {
+            string condition = $"WHERE board_id='{boardId}'";
+            return base.getData("*", condition);
+        }
+
+        public Task GetById(int id)
+        {
+            string condition = $"WHERE id={id}";
             return base.getData("*", condition)[0];
         }
 
@@ -32,7 +45,7 @@ namespace agenda_api.Repository
             string values = $" '{task.Name}', '{task.Description}', '{task.CreatedDate}', '{task.TodoDate}' ";
             try
             {
-                taskId = base.insertData(TASKPARAMETERS, values);
+                taskId = base.insertData(PARAMETERS, values);
             }
             catch(Exception e)
             {
@@ -42,9 +55,9 @@ namespace agenda_api.Repository
             return task;
         }
 
-        public Task UpdateTask(int id, Task task)
+        public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task)
         {
-            string values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}' ";
+            string values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}', user_id = '{task.UserId}' ";
             try
             {
                 base.updateData(id, values);

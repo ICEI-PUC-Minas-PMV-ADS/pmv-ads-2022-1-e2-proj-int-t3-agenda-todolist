@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using agenda_api.Entities;
 
 namespace agenda_api.Interfaces.Services
 {
@@ -7,8 +8,9 @@ namespace agenda_api.Interfaces.Services
     {
         public Task SaveTask(Task task);
         public List<Task> GetAll();
+        public List<Task> GetAllTasksByUser(int userId);
         public Task GetById(int id);
-        public Task UpdateTask(int id, Task task);
+        public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task);
         public int DeleteTask(int id);
     }
 }

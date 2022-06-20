@@ -6,93 +6,22 @@ using agenda_api.Interfaces.Services;
 
 namespace agenda_api.Services
 {
-    public class TaskService : ITaskService
+    public class BoardService : IBoardService
     {
+        private readonly IBoardRepository _repository;
         private readonly ITaskRepository _taskRepository;
-         
-        public TaskService(ITaskRepository taskRepository)
+
+        public BoardService(IBoardRepository repository, ITaskRepository taskRepository)
         {
+            _repository = repository;
             _taskRepository = taskRepository;
         }
 
-        public Task SaveTask(Task task)
+        public int DeleteBoard(int id)
         {
             try
             {
-                _taskRepository.SaveTask(task);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
-
-            return task;
-        }
-
-        public List<Task> GetAllTasksByUser(int userId)
-        {
-            List<Task> taskListk;
-            try
-            {
-                taskListk = _taskRepository.GetAllTasksByUser(userId);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return taskListk;
-        }
-
-        public List<Task> GetAll()
-        {
-            List<Task> taskListk;
-            try
-            {
-                taskListk = _taskRepository.GetAll();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return taskListk;
-        }
-
-        public Task GetById(int id)
-        {
-            Task task;
-            try
-            {
-                task = _taskRepository.GetById(id);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return task;
-        }
-
-        public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task)
-        {
-            try
-            {
-                _taskRepository.UpdateTask(id, task);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return task;
-        }
-
-        public int DeleteTask(int id)
-        {
-            try
-            {
-                _taskRepository.DeleteTask(id);
+                _repository.DeleteBoard(id);
             }
             catch (Exception e)
             {
@@ -100,6 +29,79 @@ namespace agenda_api.Services
             }
 
             return id;
+        }
+
+        public List<Board> GetAll()
+        {
+            List<Board> boardList;
+            try
+            {
+                boardList = _repository.GetAll();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return boardList;
+        }
+
+        public List<Task> GetAllTasks(int boardId)
+        {
+            List<Task> taskListk;
+            try
+            {
+                taskListk = _taskRepository.GetAllTasksByBoard(boardId);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return taskListk;
+        }
+
+        public Board GetById(int id)
+        {
+            Board board;
+            try
+            {
+                board = _repository.GetById(id);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return board;
+        }
+
+        public Board SaveBoard(Board board)
+        {
+            try
+            {
+                _repository.SaveBoard(board);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return board;
+        }
+
+        public UpdateBoardRequest UpdateBoard(int id, UpdateBoardRequest board)
+        {
+            try
+            {
+                _repository.UpdateBoard(id, board);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return board;
         }
     }
 }

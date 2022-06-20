@@ -8,15 +8,9 @@ namespace agenda_api
         public static void INIT()
         {
             createAccountTable();
+            //createAccountTypeEnumTable();
             createTaskTable();
             createBoardTable();
-        }
-
-        private static void createAccountTypeEnumTable()
-        {
-            string taskTableQUery = "CREATE TYPE IF NOT EXISTS UserType AS ENUM ('admin', 'user');";
-
-            _dbConnection.MakeQuery(taskTableQUery);
         }
 
 
@@ -24,11 +18,10 @@ namespace agenda_api
         {
             string taskTableQUery = "CREATE TABLE IF NOT EXISTS Accounts (" +
                 "user_id serial PRIMARY KEY," +
-                "user_type UserType NOT NULL default 'user'," +
-                "username VARCHAR ( 50 ) UNIQUE NOT NULL," +
-                "password VARCHAR ( 50 ) NOT NULL," +
-                "email VARCHAR ( 255 ) UNIQUE NOT NULL," +
-                "created_on TIMESTAMP NOT NULL" + 
+                "User_type VARCHAR ( 50 ) NOT NULL," +
+                "Username VARCHAR ( 50 ) UNIQUE NOT NULL," +
+                "Password VARCHAR (  50 ) NOT NULL," +
+                "Email VARCHAR ( 255 ) UNIQUE NOT NULL" +
                 ")";
 
             _dbConnection.MakeQuery(taskTableQUery);
@@ -42,8 +35,10 @@ namespace agenda_api
                 "Description VARCHAR ( 50 ) NOT NULL," +
                 "TodoDate TIMESTAMP," +
                 "CreatedDate TIMESTAMP NOT NULL," +
+                "board_id integer," +
                 "user_id integer," +
-                "FOREIGN KEY (user_id) REFERENCES Accounts (user_id)" + 
+                "FOREIGN KEY (user_id) REFERENCES Accounts (user_id)" +
+                "FOREIGN KEY (board_id) REFERENCES Board (id)" +
                 ")";
 
             _dbConnection.MakeQuery(taskTableQUery);
@@ -55,8 +50,6 @@ namespace agenda_api
                 "id serial PRIMARY KEY," +
                 "Name VARCHAR ( 50 ) UNIQUE NOT NULL," +
                 "Description VARCHAR ( 50 ) NOT NULL," +
-                "task_id integer," +
-                "FOREIGN KEY (task_id) REFERENCES Task (id)" +
                 ")";
 
             _dbConnection.MakeQuery(taskTableQUery);

@@ -12,6 +12,8 @@ namespace agenda_api
 
         public string Description { get; set; }
 
+        public int UserId { get; set; }
+
         [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime CreatedDate { get; set; }
 

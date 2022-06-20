@@ -6,93 +6,96 @@ using agenda_api.Interfaces.Services;
 
 namespace agenda_api.Services
 {
-    public class TaskService : ITaskService
+    public class UserService: IUserService
     {
-        private readonly ITaskRepository _taskRepository;
-         
-        public TaskService(ITaskRepository taskRepository)
+        private readonly IUserRepository _taskRepository;
+
+        public UserService(IUserRepository taskRepository)
         {
             _taskRepository = taskRepository;
         }
 
-        public Task SaveTask(Task task)
+        public User SaveUser(User user)
         {
             try
             {
-                _taskRepository.SaveTask(task);
-            }
-            catch(Exception e)
-            {
-                throw e;
-            }
-
-            return task;
-        }
-
-        public List<Task> GetAllTasksByUser(int userId)
-        {
-            List<Task> taskListk;
-            try
-            {
-                taskListk = _taskRepository.GetAllTasksByUser(userId);
+                _taskRepository.SaveUser(user);
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return taskListk;
+            return user;
         }
 
-        public List<Task> GetAll()
+        public List<User> GetAll()
         {
-            List<Task> taskListk;
+            List<User> list;
             try
             {
-                taskListk = _taskRepository.GetAll();
+                list = _taskRepository.GetAll();
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return taskListk;
+            return list;
         }
 
-        public Task GetById(int id)
+        public User GetById(int id)
         {
-            Task task;
+            User user;
             try
             {
-                task = _taskRepository.GetById(id);
+                user = _taskRepository.GetById(id);
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return task;
+            return user;
         }
 
-        public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task)
+        public bool Login(UserRequest user)
         {
             try
             {
-                _taskRepository.UpdateTask(id, task);
+                User dbUser = _taskRepository.GetUserByUsername(user.Username, user.Password);
+                if(dbUser.Username != null)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+
+            return false;
+        }
+
+        public User UpdateUser(int id, User user)
+        {
+            try
+            {
+                _taskRepository.UpdateUser(id, user);
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return task;
+            return user;
         }
 
-        public int DeleteTask(int id)
+        public int DeleteUser(int id)
         {
             try
             {
-                _taskRepository.DeleteTask(id);
+                _taskRepository.DeleteUser(id);
             }
             catch (Exception e)
             {
