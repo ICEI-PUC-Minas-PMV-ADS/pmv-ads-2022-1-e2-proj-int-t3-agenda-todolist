@@ -57,7 +57,22 @@ namespace agenda_api.Repository
 
         public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task)
         {
-            string values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}', user_id = '{task.UserId}' ";
+
+            string values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}'";
+
+            if (task.BoardId != 0 && task.UserId != 0)
+            {
+                values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}', user_id = '{task.UserId}', board_id = '{task.BoardId}' ";
+            }
+            else if (task.BoardId != 0)
+            {
+                values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}', board_id = '{task.BoardId}' ";
+            }
+            else if (task.UserId != 0)
+            {
+                values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}', user_id = '{task.UserId}' ";
+            }
+
             try
             {
                 base.updateData(id, values);

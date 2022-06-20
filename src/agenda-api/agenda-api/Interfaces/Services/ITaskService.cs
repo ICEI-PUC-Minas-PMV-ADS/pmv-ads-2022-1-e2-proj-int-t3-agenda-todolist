@@ -6,10 +6,11 @@ namespace agenda_api.Interfaces.Services
 {
     public interface ITaskService
     {
-        public Task SaveTask(Task task);
-        public List<Task> GetAll();
-        public List<Task> GetAllTasksByUser(int userId);
-        public Task GetById(int id);
+        public TaskReponse SaveTask(Task task);
+        public List<TaskReponse> GetAll();
+        public List<TaskReponse> GetAllTasksByUser(int userId);
+        public List<TaskReponse> GetAllTasksByBoard(int boardId);
+        public TaskReponse GetById(int id);
         public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task);
         public int DeleteTask(int id);
     }

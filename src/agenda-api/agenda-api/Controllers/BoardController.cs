@@ -18,65 +18,77 @@ namespace agenda_api.Controllers
     [Route("[controller]")]
     public class BoardController : ControllerBase
     {
-        private readonly ITaskService _service;
+        private readonly IBoardService _service;
         private readonly ILogger<BoardController> _logger;
 
-        public BoardController(ITaskService service, ILogger<BoardController> logger)
+        public BoardController(IBoardService service, ILogger<BoardController> logger)
         {
             _service = service;
             _logger = logger;
         }
-    }
 
-    [HttpGet]
-    [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
-    public ActionResult<List<Task>> Get()
-    {
-        List<Task> taskList = new List<Task>();
-        try // tentar/tentativa
+        [HttpGet]
+        [ProducesResponseType(typeof(Board), StatusCodes.Status200OK)]
+        public ActionResult<List<Board>> Get()
         {
-            taskList = _service.GetAll();
-        }
-        catch (Exception e) // pegar o erro
-        {
-            return NotFound();
-        }
-        if (taskList.Count == 0)
-        {
-            return NotFound();
-        }
-        return taskList;
-    }
+            List<Board> list = new List<Board>();
+            try // tentar/tentativa
+            {
+                list = _service.GetAll();
+            }
+            catch (Exception e) // pegar o erro
+            {
+                return NotFound();
+            }
 
-    [HttpGet("{id}")]
-    [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
-    public ActionResult<Task> Get(int id)
-    {
-        Task task;
-        try // tentar/tentativa
-        {
-            task = _service.GetById(id);
-        }
-        catch (Exception e) // pegar o erro
-        {
-            return NotFound();
+            return list;
         }
 
-        return task;
-    }
-
-    [HttpPost]
-    [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
-    public ActionResult<Task> Post(Task task)
-    {
-        try
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(Board), StatusCodes.Status200OK)]
+        public ActionResult<BoardResponse> Get(int id)
         {
-            return _service.SaveTask(task);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e);
+            BoardResponse board;
+            try // tentar/tentativa
+            {
+                board = _service.GetById(id);
+            }
+            catch (Exception e) // pegar o erro
+            {
+                return NotFound();
+            }
+
+            return board;
         }
 
+        [HttpPost]
+        [ProducesResponseType(typeof(Board), StatusCodes.Status200OK)]
+        public ActionResult<Board> Post(Board board)
+        {
+            try
+            {
+                return _service.SaveBoard(board);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(Board), StatusCodes.Status200OK)]
+        public ActionResult<int> Delete(int id)
+        {
+            try
+            {
+                return _service.DeleteBoard(id);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e);
+            }
+
+        }
     }
 }

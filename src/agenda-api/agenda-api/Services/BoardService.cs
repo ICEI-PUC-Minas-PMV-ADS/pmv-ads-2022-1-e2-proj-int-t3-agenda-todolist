@@ -9,12 +9,12 @@ namespace agenda_api.Services
     public class BoardService : IBoardService
     {
         private readonly IBoardRepository _repository;
-        private readonly ITaskRepository _taskRepository;
+        private readonly ITaskService _taskService;
 
-        public BoardService(IBoardRepository repository, ITaskRepository taskRepository)
+        public BoardService(IBoardRepository repository, ITaskService taskService)
         {
             _repository = repository;
-            _taskRepository = taskRepository;
+            _taskService = taskService;
         }
 
         public int DeleteBoard(int id)
@@ -33,47 +33,49 @@ namespace agenda_api.Services
 
         public List<Board> GetAll()
         {
-            List<Board> boardList;
+            List<Board> response;
             try
             {
-                boardList = _repository.GetAll();
+                response = _repository.GetAll();
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return boardList;
+            return response;
         }
 
-        public List<Task> GetAllTasks(int boardId)
+        public List<TaskReponse> GetAllTasks(int boardId)
         {
-            List<Task> taskListk;
+            List<TaskReponse> reponse;
             try
             {
-                taskListk = _taskRepository.GetAllTasksByBoard(boardId);
+                reponse = _taskService.GetAllTasksByBoard(boardId);
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return taskListk;
+            return reponse;
         }
 
-        public Board GetById(int id)
+        public BoardResponse GetById(int id)
         {
-            Board board;
+            BoardResponse response;
             try
             {
-                board = _repository.GetById(id);
+                Board board = _repository.GetById(id);
+                List<TaskReponse> boardTasks = _taskService.GetAllTasksByBoard(id);
+                response = new BoardResponse(board, boardTasks);
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return board;
+            return response;
         }
 
         public Board SaveBoard(Board board)

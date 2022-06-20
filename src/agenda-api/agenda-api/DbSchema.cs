@@ -8,9 +8,9 @@ namespace agenda_api
         public static void INIT()
         {
             createAccountTable();
+            createBoardTable();
             //createAccountTypeEnumTable();
             createTaskTable();
-            createBoardTable();
         }
 
 
@@ -37,7 +37,7 @@ namespace agenda_api
                 "CreatedDate TIMESTAMP NOT NULL," +
                 "board_id integer," +
                 "user_id integer," +
-                "FOREIGN KEY (user_id) REFERENCES Accounts (user_id)" +
+                "FOREIGN KEY (user_id) REFERENCES Accounts (user_id)," +
                 "FOREIGN KEY (board_id) REFERENCES Board (id)" +
                 ")";
 
@@ -49,7 +49,7 @@ namespace agenda_api
             string taskTableQUery = "CREATE TABLE IF NOT EXISTS Board (" +
                 "id serial PRIMARY KEY," +
                 "Name VARCHAR ( 50 ) UNIQUE NOT NULL," +
-                "Description VARCHAR ( 50 ) NOT NULL," +
+                "Description VARCHAR ( 50 ) NOT NULL" +
                 ")";
 
             _dbConnection.MakeQuery(taskTableQUery);

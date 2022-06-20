@@ -132,9 +132,9 @@ namespace agenda_api.Controllers
 
         [HttpGet("{id}/tasks")]
         [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
-        public ActionResult<List<Task>> GetTasks(int id)
+        public ActionResult<List<TaskReponse>> GetTasks(int id)
         {
-            List<Task> tasks = new List<Task>();
+            List<TaskReponse> tasks = new List<TaskReponse>();
             try // tentar/tentativa
             {
                 tasks = _taskService.GetAllTasksByUser(id);

@@ -28,10 +28,10 @@ namespace agenda_api.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
-        public ActionResult<List<Task>> Get()
+        [ProducesResponseType(typeof(TaskReponse), StatusCodes.Status200OK)]
+        public ActionResult<List<TaskReponse>> Get()
         {
-            List<Task> taskList = new List<Task>();
+            List<TaskReponse> taskList = new List<TaskReponse>();
             try // tentar/tentativa
             {
                 taskList = _taskService.GetAll();
@@ -48,10 +48,10 @@ namespace agenda_api.Controllers
         }
 
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
-        public ActionResult<Task> Get(int id)
+        [ProducesResponseType(typeof(TaskReponse), StatusCodes.Status200OK)]
+        public ActionResult<TaskReponse> Get(int id)
         {
-            Task task;
+            TaskReponse task;
             try // tentar/tentativa
             {
                 task = _taskService.GetById(id);
@@ -65,8 +65,8 @@ namespace agenda_api.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
-        public ActionResult<Task> Post(Task task)
+        [ProducesResponseType(typeof(TaskReponse), StatusCodes.Status200OK)]
+        public ActionResult<TaskReponse> Post(Task task)
         {
             try
             {
@@ -80,12 +80,12 @@ namespace agenda_api.Controllers
         }
 
         [HttpPost("{id}")]
-        [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(TaskReponse), StatusCodes.Status200OK)]
         public ActionResult<UpdateTaskRequest> Post(int id, UpdateTaskRequest task)
         {
             try
             {
-                return _taskService.UpdateTask(id, task);
+                 return _taskService.UpdateTask(id, task);
             }
             catch (Exception e)
             {
@@ -95,7 +95,7 @@ namespace agenda_api.Controllers
         }
 
         [HttpDelete("{id}")]
-        [ProducesResponseType(typeof(Task), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(TaskReponse), StatusCodes.Status200OK)]
         public ActionResult<int> Delete(int id)
         {
             try

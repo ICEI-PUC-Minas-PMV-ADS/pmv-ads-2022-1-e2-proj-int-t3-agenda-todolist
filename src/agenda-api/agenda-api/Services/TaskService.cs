@@ -15,63 +15,84 @@ namespace agenda_api.Services
             _taskRepository = taskRepository;
         }
 
-        public Task SaveTask(Task task)
+        public TaskReponse SaveTask(Task task)
         {
+            TaskReponse response;
             try
             {
                 _taskRepository.SaveTask(task);
+                response = new TaskReponse(task);
             }
             catch(Exception e)
             {
                 throw e;
             }
 
-            return task;
+            return response;
         }
 
-        public List<Task> GetAllTasksByUser(int userId)
+        public List<TaskReponse> GetAllTasksByBoard(int boardId)
         {
-            List<Task> taskListk;
+            List<TaskReponse> response;
             try
             {
-                taskListk = _taskRepository.GetAllTasksByUser(userId);
+                List<Task> taskList = _taskRepository.GetAllTasksByBoard(boardId);
+                response = taskList.ConvertAll(x => new TaskReponse(x));
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return taskListk;
+            return response;
         }
 
-        public List<Task> GetAll()
+        public List<TaskReponse> GetAllTasksByUser(int userId)
         {
-            List<Task> taskListk;
+            List<TaskReponse> response;
             try
             {
-                taskListk = _taskRepository.GetAll();
+                List<Task> taskList = _taskRepository.GetAllTasksByUser(userId);
+                response = taskList.ConvertAll(x => new TaskReponse(x));
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return taskListk;
+            return response;
         }
 
-        public Task GetById(int id)
+        public List<TaskReponse> GetAll()
         {
-            Task task;
+            List<TaskReponse> response;
             try
             {
-                task = _taskRepository.GetById(id);
+                List<Task> taskList = _taskRepository.GetAll();
+                response = taskList.ConvertAll(x => new TaskReponse(x));
             }
             catch (Exception e)
             {
                 throw e;
             }
 
-            return task;
+            return response;
+        }
+
+        public TaskReponse GetById(int id)
+        {
+            TaskReponse response;
+            try
+            {
+                Task task = _taskRepository.GetById(id);
+                response = new TaskReponse(task);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return response;
         }
 
         public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task)

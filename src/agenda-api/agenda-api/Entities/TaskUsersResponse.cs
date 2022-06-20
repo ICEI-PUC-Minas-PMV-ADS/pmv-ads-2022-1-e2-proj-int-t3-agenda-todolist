@@ -7,6 +7,6 @@ namespace agenda_api.Entities
     {
             public int User_id { get; set; }
 
-            public List<Task> Tasks { get; set; }
+            public List<TaskReponse> Tasks { get; set; }
     }
 }

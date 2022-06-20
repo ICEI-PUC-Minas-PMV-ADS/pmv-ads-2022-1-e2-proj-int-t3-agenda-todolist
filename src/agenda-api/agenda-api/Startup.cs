@@ -35,6 +35,10 @@ namespace agenda_api
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
 
+
+            services.AddScoped<IBoardService, BoardService>();
+            services.AddScoped<IBoardRepository, BoardRepository>();
+
             DbSchema.INIT();
             services.AddCors();
         }
