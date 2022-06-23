@@ -82,7 +82,13 @@ class Tarefas extends React.Component {
                        {/* coluna 1 - Em andamento */}
                       <Grid item xs={6}> 
                         <h2>Em andamento</h2>
-                        {this.state.tarefas?.map(res => <p>{res.name}</p>)}
+                        {this.state.tarefas?.map(res => 
+                        (
+                        <div>
+                          <p>{res.name}</p>
+                          <p>x</p> 
+                        </div>
+                        ))}
                       </Grid>
                        {/* coluna 2 - Feito  */}
                       <Grid item xs={6}>
