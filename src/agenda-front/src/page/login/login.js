@@ -15,17 +15,20 @@ class Login extends React.Component {
       super(props);
       this.state = {
           Username: null,
-          Password: null
+          Password: null,
+          usrError: false
         };
     }
     
     doLogin = async () => {
-        console.log('fazendo o login')
-        // this.props.navigate('tarefas')
-
-        await post('user/login', this.state)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
+        await post('user/login', this.state) // chamada da promisse
+        .then((res) => { // then = então  .... quando a promisse termina
+          this.props.navigate('tarefas') // quanto a promisse termina vai rodar esse código
+        })
+        .catch((err) => { // acha o erro caso dê
+          console.log(err)
+          this.setState({ usrError: true }) //caso tenha erro vai rodar esse código usa o setState pra fazer o estado do usrError ficar true
+        })
     }
   
     render() {
@@ -44,6 +47,9 @@ class Login extends React.Component {
                   </Grid>
                   <Grid item xs={12}>
                       <Button variant="contained" onClick={()=>this.doLogin()}  >Logar</Button>
+                  </Grid>
+                  <Grid item xs={12}>
+                      {this.state.usrError ? <p>Usuário ou senha inváidos</p> : null }
                   </Grid>
               </Grid>
           </Box>
