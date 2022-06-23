@@ -17,6 +17,7 @@ namespace agenda_api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [EnableCors("Policy1")]
     public class TaskController : ControllerBase
     {
         private readonly ITaskService _taskService;

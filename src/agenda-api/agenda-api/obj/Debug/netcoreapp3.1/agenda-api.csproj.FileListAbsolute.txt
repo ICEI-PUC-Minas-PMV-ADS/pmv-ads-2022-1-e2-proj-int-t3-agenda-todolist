@@ -27,4 +27,3 @@
 /Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/obj/Debug/netcoreapp3.1/agenda-api.dll
 /Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/obj/Debug/netcoreapp3.1/agenda-api.pdb
 /Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/obj/Debug/netcoreapp3.1/agenda-api.genruntimeconfig.cache
-/Users/outrogato/Documents/pessoal/pmv-ads-2022-1-e2-proj-int-t3-agenda-todolist/src/agenda-api/agenda-api/obj/Debug/netcoreapp3.1/agenda-api.csproj.AssemblyReference.cache

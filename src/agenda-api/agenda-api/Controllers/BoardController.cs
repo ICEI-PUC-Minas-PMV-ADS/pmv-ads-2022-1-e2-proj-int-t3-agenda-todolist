@@ -17,6 +17,7 @@ namespace agenda_api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [EnableCors("Policy1")]
     public class BoardController : ControllerBase
     {
         private readonly IBoardService _service;

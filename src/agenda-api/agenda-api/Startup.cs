@@ -17,7 +17,7 @@ namespace agenda_api
 {
     public class Startup
     {
-        string CORS = "CORS";
+        readonly string MyAllowSpecificOrigins = "Policy1";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -28,13 +28,17 @@ namespace agenda_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options => options.AddPolicy(name: CORS,
-                      policy =>
-                      {
-                          policy.WithOrigins("http://localhost:3000/",
-                                              "*");
-                      })
-            );
+            services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                                  policy =>
+                                  {
+                                      policy.WithOrigins("*")
+                                                          .AllowAnyHeader()
+                                                          .AllowAnyMethod();
+                                  });
+            });
+
             services.AddControllers();
 
             services.AddScoped<ITaskService, TaskService>();
@@ -47,6 +51,8 @@ namespace agenda_api
             services.AddScoped<IBoardRepository, BoardRepository>();
 
             DbSchema.INIT();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,14 +65,14 @@ namespace agenda_api
 
             app.UseRouting();
 
-            app.UseCors(options => options.WithOrigins("http://localhost:3000/",
-                                              "*").AllowAnyMethod());
+            app.UseCors();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers()
+                     .RequireCors(MyAllowSpecificOrigins);
             });
         }
     }
