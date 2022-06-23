@@ -9,10 +9,14 @@ namespace agenda_api.Services
     public class TaskService : ITaskService
     {
         private readonly ITaskRepository _taskRepository;
-         
-        public TaskService(ITaskRepository taskRepository)
+        private readonly IUserService _userService;
+        private readonly IBoardService _boardService;
+
+        public TaskService(ITaskRepository taskRepository, IUserService userService, IBoardService boardService)
         {
             _taskRepository = taskRepository;
+            _userService = userService;
+            _boardService = boardService;
         }
 
         public TaskReponse SaveTask(Task task)
@@ -20,7 +24,11 @@ namespace agenda_api.Services
             TaskReponse response;
             try
             {
+                User user = _userService.GetById(task.user_id);
+                BoardResponse board = _boardService.GetById(task.board_id);
+
                 _taskRepository.SaveTask(task);
+
                 response = new TaskReponse(task);
             }
             catch(Exception e)
@@ -122,5 +130,6 @@ namespace agenda_api.Services
 
             return id;
         }
+
     }
 }
