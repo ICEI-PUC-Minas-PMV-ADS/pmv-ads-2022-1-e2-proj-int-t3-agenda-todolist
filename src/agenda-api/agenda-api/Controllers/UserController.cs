@@ -16,7 +16,6 @@ using Microsoft.AspNetCore.Cors;
 namespace agenda_api.Controllers
 {
     [ApiController]
-    [EnableCors("CORS")]
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
