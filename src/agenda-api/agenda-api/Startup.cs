@@ -53,7 +53,7 @@ namespace agenda_api
 
             app.UseRouting();
 
-            app.UseCors();
+            app.UseCors(options => options.WithOrigins("*").AllowAnyMethod());
 
             app.UseAuthorization();
 
