@@ -40,7 +40,6 @@ namespace agenda_api
             services.AddScoped<IBoardRepository, BoardRepository>();
 
             DbSchema.INIT();
-            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,11 +51,6 @@ namespace agenda_api
             }
 
             app.UseRouting();
-
-            app.UseCors(x => x
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true));
 
             app.UseAuthorization();
 
