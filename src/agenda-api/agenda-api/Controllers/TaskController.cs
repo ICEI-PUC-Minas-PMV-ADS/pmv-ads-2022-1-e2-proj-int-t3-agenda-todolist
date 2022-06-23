@@ -11,10 +11,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Web;
 using agenda_api.Entities;
+using Microsoft.AspNetCore.Cors;
 
 namespace agenda_api.Controllers
 {
     [ApiController]
+    [EnableCors("CORS")]
     [Route("[controller]")]
     public class TaskController : ControllerBase
     {
