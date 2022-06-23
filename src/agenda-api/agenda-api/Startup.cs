@@ -17,6 +17,7 @@ namespace agenda_api
 {
     public class Startup
     {
+        string CORS = "CORS";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,7 +28,13 @@ namespace agenda_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
+            services.AddCors(options => options.AddPolicy(name: CORS,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:3000",
+                                              "*");
+                      })
+            );
             services.AddControllers();
 
             services.AddScoped<ITaskService, TaskService>();
@@ -35,7 +42,6 @@ namespace agenda_api
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserRepository, UserRepository>();
-
 
             services.AddScoped<IBoardService, BoardService>();
             services.AddScoped<IBoardRepository, BoardRepository>();

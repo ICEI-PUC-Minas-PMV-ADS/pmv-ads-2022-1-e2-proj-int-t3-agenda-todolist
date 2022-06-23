@@ -1,23 +1,22 @@
 ﻿<Properties StartupConfiguration="{D344EBC2-40FD-4024-8E0A-D94C8EC44312}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Controllers/UserController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="agenda-api/Startup.cs">
     <Files>
-      <File FileName="agenda-api/Startup.cs" Line="22" Column="42" />
-      <File FileName="agenda-api/Controllers/BoardController.cs" Line="1" Column="1" />
-      <File FileName="agenda-api/Controllers/TaskController.cs" Line="1" Column="1" />
-      <File FileName="agenda-api/Controllers/UserController.cs" Line="19" Column="16" />
+      <File FileName="agenda-api/Startup.cs" Line="30" Column="24" />
+      <File FileName="agenda-api/Controllers/BoardController.cs" Line="4" Column="18" />
+      <File FileName="agenda-api/Controllers/TaskController.cs" Line="18" Column="20" />
+      <File FileName="agenda-api/Controllers/UserController.cs" Line="18" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="agenda-api" expanded="True">
             <Node name="agenda-api" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="UserController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Entities" expanded="True" />
               <Node name="Repository" expanded="True" />
               <Node name="Services" expanded="True" />
               <Node name="appsettings.json" expanded="True" />
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
