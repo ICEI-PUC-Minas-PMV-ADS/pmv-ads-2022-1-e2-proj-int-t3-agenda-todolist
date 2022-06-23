@@ -31,7 +31,7 @@ namespace agenda_api
             services.AddCors(options => options.AddPolicy(name: CORS,
                       policy =>
                       {
-                          policy.WithOrigins("http://localhost:3000",
+                          policy.WithOrigins("http://localhost:3000/",
                                               "*");
                       })
             );
@@ -59,7 +59,8 @@ namespace agenda_api
 
             app.UseRouting();
 
-            app.UseCors(options => options.WithOrigins("*").AllowAnyMethod());
+            app.UseCors(options => options.WithOrigins("http://localhost:3000/",
+                                              "*").AllowAnyMethod());
 
             app.UseAuthorization();
 
