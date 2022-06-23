@@ -10,40 +10,38 @@ import {
     useLocation,
   } from "react-router-dom";
 
-class Login extends React.Component {
+class Tarefas extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {
-          Username: null,
-          Password: null
+
+      this.state = { // defino o estado da aplicação
+        tarefas: [] // estado inicial com tarefas nulas
         };
     }
-    
-    doLogin = () => {
-        console.log('fazendo o login')
-        // this.props.navigate('tarefas')
 
-        client().post('user/login', this.state)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
-    }
-  
+  componentDidMount() { // quando o componente renderizar
+    client.get('task').then(res => this.stateManager(res)) // busco todas as tarefas na url 'task' e coloco no estado
+  }
+
+  componentWillUnmount() { // quando o componente desrenderizar
+    this.stateManager(null)
+  }
+
+  stateManager(value) {
+    this.setState({
+      tarefas: value
+    });
+  }
+
     render() {
       return (
         <div className="App">
           <Box sx={{ flexGrow: 1 }}>
               <Grid container spacing={2}>
                   <Grid item xs={12}>
-                      <h1>Login</h1>
+                      <h1>Tarefas</h1>
                   </Grid>
                   <Grid item xs={12}>
-                      <TextField id="outlined-basic" label="usuário" variant="outlined" value={this.state.Username} onChange={(e) => this.setState({ Username: e.target.value })} />
-                  </Grid>
-                  <Grid item xs={12}>
-                      <TextField id="outlined-basic" label="senha" variant="outlined" type="password" value={this.state.passPasswordword} onChange={(e) => this.setState({ Password: e.target.value })} />
-                  </Grid>
-                  <Grid item xs={12}>
-                      <Button variant="contained" onClick={()=>this.doLogin()}  >Logar</Button>
                   </Grid>
               </Grid>
           </Box>
@@ -66,7 +64,7 @@ class Login extends React.Component {
     }
     console.log(props)
   
-    return <Login {...props} />
+    return <Tarefas {...props} />
   }
 
   export default WrappedComponent;

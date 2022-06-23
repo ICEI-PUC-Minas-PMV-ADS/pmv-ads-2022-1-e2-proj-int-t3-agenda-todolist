@@ -1,12 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import {getData} from './agent'
-import Login from './page/login/login'
+import RoutesManaging from "./routes";
  
 function App() {
   return (
     <div className="App">
-      <Login />
+      <RoutesManaging />
     </div>
   );
 }
