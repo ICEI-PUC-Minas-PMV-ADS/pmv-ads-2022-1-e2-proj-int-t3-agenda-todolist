@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import client from '../../agent'
+import {get} from '../../agent'
 import {
     useParams,
     useNavigate,
@@ -20,7 +20,7 @@ class Tarefas extends React.Component {
     }
 
   componentDidMount() { // quando o componente renderizar
-    client.get('task').then(res => this.stateManager(res)) // busco todas as tarefas na url 'task' e coloco no estado
+    get('task').then(res => this.stateManager(res)) // busco todas as tarefas na url 'task' e coloco no estado
   }
 
   componentWillUnmount() { // quando o componente desrenderizar
@@ -42,6 +42,7 @@ class Tarefas extends React.Component {
                       <h1>Tarefas</h1>
                   </Grid>
                   <Grid item xs={12}>
+                    {this.state.tarefas?.map(res => <p>{res.name}</p>)}
                   </Grid>
               </Grid>
           </Box>

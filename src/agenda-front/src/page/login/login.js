@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import client from '../../agent'
+import {post} from '../../agent'
 import {
     useParams,
     useNavigate,
@@ -19,11 +19,11 @@ class Login extends React.Component {
         };
     }
     
-    doLogin = () => {
+    doLogin = async () => {
         console.log('fazendo o login')
         // this.props.navigate('tarefas')
 
-        client().post('user/login', this.state)
+        await post('user/login', this.state)
         .then((res) => console.log(res))
         .catch((err) => console.log(err))
     }
