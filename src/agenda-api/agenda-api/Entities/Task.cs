@@ -7,6 +7,29 @@ namespace agenda_api
 {
     public class Task : BaseEntity
     {
+        public Task()
+        {
+
+        }
+
+        public Task(TaskRequest taskRequest)
+        {
+            Name = taskRequest.Name;
+            Description = taskRequest.Description;
+            this.user_id = taskRequest.UserId;
+            this.board_id = taskRequest.BoardId;
+            TodoDate = taskRequest.TodoDate;
+        }
+
+        public Task(int id, string name, string description, DateTime createdDate, DateTime todoDate)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            CreatedDate = createdDate;
+            TodoDate = todoDate;
+        }
+
         [Required]
         public string Name { get; set; }
 
@@ -22,5 +45,9 @@ namespace agenda_api
         [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime TodoDate { get; set; }
 
+        public static explicit operator Task(TaskRequest v)
+        {
+            return new Task(v);
+        }
     }
 }

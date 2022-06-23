@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace agenda_api.Entities
 {
-    public class UpdateTaskRequest
+    public class TaskRequest
     {
         [Required]
         public string Name { get; set; }

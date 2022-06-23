@@ -11,7 +11,7 @@ namespace agenda_api.Interfaces.Services
         public List<TaskReponse> GetAllTasksByUser(int userId);
         public List<TaskReponse> GetAllTasksByBoard(int boardId);
         public TaskReponse GetById(int id);
-        public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task);
+        public TaskRequest UpdateTask(int id, TaskRequest task);
         public int DeleteTask(int id);
     }
 }

@@ -31,7 +31,7 @@ namespace agenda_api.Controllers
         [ProducesResponseType(typeof(TaskReponse), StatusCodes.Status200OK)]
         public ActionResult<List<TaskReponse>> Get()
         {
-            List<TaskReponse> taskList = new List<TaskReponse>();
+            List<TaskReponse> taskList;
             try // tentar/tentativa
             {
                 taskList = _taskService.GetAll();
@@ -40,10 +40,7 @@ namespace agenda_api.Controllers
             {
                 return NotFound();
             }
-            if(taskList.Count == 0)
-            {
-                return NotFound();
-            }
+
             return taskList;
         }
 
@@ -66,22 +63,22 @@ namespace agenda_api.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(TaskReponse), StatusCodes.Status200OK)]
-        public ActionResult<TaskReponse> Post(Task task)
+        public ActionResult<TaskReponse> Post(TaskRequest task)
         {
             try
             {
-                return _taskService.SaveTask(task);
+                return _taskService.SaveTask((Task)task);
             }
             catch(Exception e)
             {
-                return BadRequest(e);
+                return BadRequest(e.Message);
             }
 
         }
 
         [HttpPost("{id}")]
         [ProducesResponseType(typeof(TaskReponse), StatusCodes.Status200OK)]
-        public ActionResult<UpdateTaskRequest> Post(int id, UpdateTaskRequest task)
+        public ActionResult<TaskRequest> Post(int id, TaskRequest task)
         {
             try
             {

@@ -9,14 +9,14 @@ namespace agenda_api.Services
     public class TaskService : ITaskService
     {
         private readonly ITaskRepository _taskRepository;
-        private readonly IUserService _userService;
-        private readonly IBoardService _boardService;
+        private readonly IUserRepository _userRepository;
+        private readonly IBoardRepository _boardRepository;
 
-        public TaskService(ITaskRepository taskRepository, IUserService userService, IBoardService boardService)
+        public TaskService(ITaskRepository taskRepository, IUserRepository userRepository, IBoardRepository boardRepository)
         {
             _taskRepository = taskRepository;
-            _userService = userService;
-            _boardService = boardService;
+            _userRepository = userRepository;
+            _boardRepository = boardRepository;
         }
 
         public TaskReponse SaveTask(Task task)
@@ -24,8 +24,31 @@ namespace agenda_api.Services
             TaskReponse response;
             try
             {
-                User user = _userService.GetById(task.user_id);
-                BoardResponse board = _boardService.GetById(task.board_id);
+                if (task.user_id != 0)
+                {
+                    try
+                    {
+                        User user = _userRepository.GetById(task.user_id);
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception("Nenhum usuário encontrado");
+                    }
+                }
+
+                if (task.board_id != 0)
+                {
+
+                    try
+                    {
+                        Board board = _boardRepository.GetById(task.board_id);
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception("Nenhum board encontrado");
+                    }
+                }
+                
 
                 _taskRepository.SaveTask(task);
 
@@ -41,7 +64,7 @@ namespace agenda_api.Services
 
         public List<TaskReponse> GetAllTasksByBoard(int boardId)
         {
-            List<TaskReponse> response;
+            List<TaskReponse> response = new List<TaskReponse>(); 
             try
             {
                 List<Task> taskList = _taskRepository.GetAllTasksByBoard(boardId);
@@ -57,7 +80,7 @@ namespace agenda_api.Services
 
         public List<TaskReponse> GetAllTasksByUser(int userId)
         {
-            List<TaskReponse> response;
+            List<TaskReponse> response = new List<TaskReponse>();
             try
             {
                 List<Task> taskList = _taskRepository.GetAllTasksByUser(userId);
@@ -73,7 +96,7 @@ namespace agenda_api.Services
 
         public List<TaskReponse> GetAll()
         {
-            List<TaskReponse> response;
+            List<TaskReponse> response = new List<TaskReponse>();
             try
             {
                 List<Task> taskList = _taskRepository.GetAll();
@@ -103,7 +126,7 @@ namespace agenda_api.Services
             return response;
         }
 
-        public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task)
+        public TaskRequest UpdateTask(int id, TaskRequest task)
         {
             try
             {

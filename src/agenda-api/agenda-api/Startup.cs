@@ -27,7 +27,6 @@ namespace agenda_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
             services.AddControllers();
 
             services.AddScoped<ITaskService, TaskService>();
@@ -41,6 +40,7 @@ namespace agenda_api
             services.AddScoped<IBoardRepository, BoardRepository>();
 
             DbSchema.INIT();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,14 +53,6 @@ namespace agenda_api
 
             app.UseRouting();
 
-            // global cors policy
-            app.UseCors(x => x
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .SetIsOriginAllowed(origin => true) // allow any origin
-                .AllowCredentials()); // allow credentials
-
-            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

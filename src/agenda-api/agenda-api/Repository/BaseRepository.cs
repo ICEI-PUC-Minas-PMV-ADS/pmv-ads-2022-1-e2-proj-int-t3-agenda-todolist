@@ -17,6 +17,10 @@ namespace agenda_api.Repository
             string baseQuery = $"select {parameters} from {_tableName} {condition}";
             DbConnection dbConnection = new DbConnection();
             DataTable dataTable = dbConnection.getDataQuery(baseQuery);
+            if(dataTable.Rows.Count == 0)
+            {
+                return new List<T>();
+            }
             return ConvertToList<T>(dataTable);
         }
 

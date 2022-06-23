@@ -11,7 +11,7 @@ namespace agenda_api.Interfaces.Repository
         public Task SaveTask(Task task);
         public List<Task> GetAllTasksByUser(int userId);
         public List<Task> GetAllTasksByBoard(int boardId);
-        public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task);
+        public TaskRequest UpdateTask(int id, TaskRequest task);
         public int DeleteTask(int id);
     }
 }

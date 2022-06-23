@@ -55,7 +55,7 @@ namespace agenda_api.Repository
             return task;
         }
 
-        public UpdateTaskRequest UpdateTask(int id, UpdateTaskRequest task)
+        public TaskRequest UpdateTask(int id, TaskRequest task)
         {
 
             string values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}'";
