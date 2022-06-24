@@ -34,22 +34,22 @@ class Login extends React.Component {
     render() {
       return (
         <div className="App">
-          <Box sx={{ flexGrow: 1 }}>
-              <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                      <h1>Login</h1>
+          <Box sx={{ display: 'Flex', width: '100%', justifyContent: 'center', textAlign: 'center' }}>
+              <Grid container spacing={2} xs={6} justifyContent="center" direction="column" sx={{ marginTop: '25px', borderRadius: '10px', padding: '20px', boxShadow: '4px 8px 30px black'}}>
+                  <Grid item>
+                      <h1 style={{ color: '#ebba34'}}>Login</h1>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item>
                       <TextField id="outlined-basic" label="usuário" variant="outlined" value={this.state.Username} onChange={(e) => this.setState({ Username: e.target.value })} />
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item>
                       <TextField id="outlined-basic" label="senha" variant="outlined" type="password" value={this.state.passPasswordword} onChange={(e) => this.setState({ Password: e.target.value })} />
                   </Grid>
-                  <Grid item xs={12}>
-                      <Button variant="contained" onClick={()=>this.doLogin()}  >Logar</Button>
+                  <Grid item>
+                      <Button style={{ backgroundColor: '#ebba34'}} variant="contained" onClick={()=>this.doLogin()}  >Logar</Button>
                   </Grid>
-                  <Grid item xs={12}>
-                      {this.state.usrError ? <p>Usuário ou senha inváidos</p> : null }
+                  <Grid item>
+                      {this.state.usrError ? <p style={{ color: 'red'}}>Usuário ou senha inválidos!</p> : null }
                   </Grid>
               </Grid>
           </Box>

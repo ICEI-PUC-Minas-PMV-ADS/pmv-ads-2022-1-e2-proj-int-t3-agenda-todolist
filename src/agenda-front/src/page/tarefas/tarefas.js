@@ -16,6 +16,8 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import SaveIcon from '@mui/icons-material/Save';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 const style = {
   position: 'absolute',
@@ -28,6 +30,16 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+const listItemStyle = {
+  padding: '6px',
+  textAlign: 'center',
+  backgroundColor: '#EAEAEA',
+  borderRadius: '6px',
+  marginRight: '7px',
+  boxShadow: '1px 1px 8px gray',
+  flexGrow: '1'
+}
 
 const actions = [
   { icon: <SaveIcon />, name: 'Save' }
@@ -71,11 +83,11 @@ class Tarefas extends React.Component {
 
     render() {
       return (
-        <div className="App">
-          <Box sx={{ flexGrow: 1 }}>
+        <div className="App" style={{backgroundColor: '#37a1ed'}}>
+          <Box sx={{ margin: '0 0 0 20px', minHeight: '600px', width: '50%', flexGrow: 1, padding: '24px', backgroundColor: '#f5ef98', borderRadius: '10px' }}>
               <Grid container spacing={2}>
                   <Grid item xs={12}>
-                      <h1>Tarefas</h1>
+                      <h1 style={{ color: '#ebba34', textDecoration: 'underline'}}>Tarefas</h1>
                   </Grid>
                   <Grid item xs={12}>
                     <Grid container spacing={2}>
@@ -84,16 +96,18 @@ class Tarefas extends React.Component {
                         <h2>Em andamento</h2>
                         {this.state.tarefas?.map(res => 
                         (
-                        <div>
-                          <p>{res.name}</p>
-                          <p>x</p> 
+                        <div style={{ display: 'flex', alignItems: 'center'}}>
+                          <p style={listItemStyle}>{res.name}</p>
+                          <p>
+                            <DeleteIcon onClick={() => console.log('kappa')} /> { /* <-- call request function then remove it from tasks array */ }
+                          </p>
                         </div>
                         ))}
                       </Grid>
                        {/* coluna 2 - Feito  */}
-                      <Grid item xs={6}>
+                      <Grid item xs={6} style={{ display: 'flex', flexDirection: 'column'}}>
                         <h2>Feito ;)</h2>
-                        {this.state.tarefas?.map(res => <p>{res.name}</p>)}
+                        {this.state.tarefas?.map(res => <p style={listItemStyle}>{res.name}</p>)}
                       </Grid>
                     </Grid>
                   </Grid>
