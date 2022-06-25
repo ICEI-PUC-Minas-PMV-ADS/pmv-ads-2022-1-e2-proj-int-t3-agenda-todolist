@@ -26,6 +26,7 @@ import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import Modal from '@mui/material/Modal';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CompressOutlined } from '@mui/icons-material';
+import Switch from '@mui/material/Switch';
 
 
 const style = {
@@ -80,6 +81,7 @@ class Tarefas extends React.Component {
   componentWillUnmount() { // quando o componente desrenderizar
     this.stateManager(null)
   }
+
   deleteTask = async (id) => {
     await del(`task/${id}`) 
     .then(async (res) => { 
@@ -93,6 +95,36 @@ class Tarefas extends React.Component {
     })
 
   }
+
+
+  updateTask = async (task) => {
+    await post(`task/${task.id}`, task) 
+    .then(async (res) => { 
+      await get('task').then(res => { 
+        this.stateManager(res)
+      }) 
+    })
+    .catch((err) => { // acha o erro caso dê
+      console.log(err)
+      this.setState({ usrError: true }) 
+    })
+
+  }
+
+  handleUpdateStatusTask = async (task) => {
+    console.log(task)
+    this.setState({
+      tarefas: [
+        ...this.state.tarefas.map(x => {
+          if(x.id == task.id){
+            x.status = "DONE";
+            this.updateTask(task);
+          }
+          return x
+        })] 
+    });
+  }
+
   handleOpen = () =>  this.setState({ modalIsopen: true });
   handleClose = () =>  this.setState({ modalIsopen: false });
   createtask =  async () =>{
@@ -143,6 +175,14 @@ class Tarefas extends React.Component {
                                 </Avatar>
                               </ListItemAvatar>
                               <ListItemText primary={res.name} secondary={res.description}/>
+                              <Switch
+                                edge="end"
+                                onChange={() => {this.handleUpdateStatusTask(res)}}
+                                checked={res.status == "DONE"}
+                                inputProps={{
+                                  'aria-labelledby': 'switch-list-label-bluetooth',
+                                }}
+                              />
                             </ListItem>
 
                           ))}
@@ -155,13 +195,26 @@ class Tarefas extends React.Component {
                         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                           {this.state.tarefas?.filter(x => x.status == 'DONE').map(res => 
                           (
-                            <ListItem>
+                            <ListItem 
+                            secondaryAction={
+                              <IconButton edge="end" aria-label="delete" onClick={() =>{this.deleteTask(res.id)}}>
+                                <DeleteIcon />
+                              </IconButton>
+                            }>
                               <ListItemAvatar>
                                 <Avatar>
                                   <ImageIcon />
                                 </Avatar>
                               </ListItemAvatar>
                               <ListItemText primary={res.name} secondary={res.description}/>
+                              <Switch
+                                edge="end"
+                                onChange={() => {this.handleUpdateStatusTask(res)}}
+                                checked={res.status == "DONE"}
+                                inputProps={{
+                                  'aria-labelledby': 'switch-list-label-bluetooth',
+                                }}
+                              />
                             </ListItem>
 
                           ))}
