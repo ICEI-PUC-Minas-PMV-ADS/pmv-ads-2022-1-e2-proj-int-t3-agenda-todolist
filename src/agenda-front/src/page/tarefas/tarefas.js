@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import {get} from '../../agent'
+import {get, post, del} from '../../agent'
 import {
     useParams,
     useNavigate,
@@ -14,9 +14,18 @@ import SpeedDial from '@mui/material/SpeedDial';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import SaveIcon from '@mui/icons-material/Save';
-import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ImageIcon from '@mui/icons-material/Image';
+import IconButton from '@mui/material/IconButton';
+import WorkIcon from '@mui/icons-material/Work';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import Modal from '@mui/material/Modal';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { CompressOutlined } from '@mui/icons-material';
 
 
 const style = {
@@ -52,8 +61,10 @@ class Tarefas extends React.Component {
 
       this.state = { // defino o estado da aplicação
         modalIsopen: false,
+        usrError: false,
         newTask: {
           name: null,
+          status: "PENDING",
           description: null
         },
         tarefas: [] // estado inicial da lsita de tarefas com tarefas nulas
@@ -69,12 +80,35 @@ class Tarefas extends React.Component {
   componentWillUnmount() { // quando o componente desrenderizar
     this.stateManager(null)
   }
+  deleteTask = async (id) => {
+    await del(`task/${id}`) 
+    .then(async (res) => { 
+      await get('task').then(res => { 
+        this.stateManager(res)
+      }) 
+    })
+    .catch((err) => { // acha o erro caso dê
+      console.log(err)
+      this.setState({ usrError: true }) 
+    })
 
+  }
   handleOpen = () =>  this.setState({ modalIsopen: true });
   handleClose = () =>  this.setState({ modalIsopen: false });
-  enviar = () =>{
-    console.log(this.state.newTask)
+  createtask =  async () =>{
+    await post('task', this.state.newTask) 
+    .then((res) => { 
+      get('task').then(res => { 
+        this.handleClose()
+        this.stateManager(res)
+      }) 
+    })
+    .catch((err) => { // acha o erro caso dê
+      console.log(err)
+      this.setState({ usrError: true }) 
+    })
   }
+
   stateManager(value) {
     this.setState({
       tarefas: value
@@ -94,27 +128,49 @@ class Tarefas extends React.Component {
                        {/* coluna 1 - Em andamento */}
                       <Grid item xs={6}> 
                         <h2>Em andamento</h2>
-                        {this.state.tarefas?.map(res => 
-                        (
-                        <div style={{ display: 'flex', alignItems: 'center'}}>
-                          <p style={listItemStyle}>{res.name}</p>
-                          <p>
-                            <DeleteIcon onClick={() => console.log('kappa')} /> { /* <-- call request function then remove it from tasks array */ }
-                          </p>
-                        </div>
-                        ))}
+                        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                          {this.state.tarefas?.filter(x => x.status == 'PENDING').map(res => 
+                          (
+                            <ListItem 
+                            secondaryAction={
+                              <IconButton edge="end" aria-label="delete" onClick={() =>{this.deleteTask(res.id)}}>
+                                <DeleteIcon />
+                              </IconButton>
+                            }>
+                              <ListItemAvatar>
+                                <Avatar>
+                                  <ImageIcon />
+                                </Avatar>
+                              </ListItemAvatar>
+                              <ListItemText primary={res.name} secondary={res.description}/>
+                            </ListItem>
+
+                          ))}
+                          </List>
                       </Grid>
                        {/* coluna 2 - Feito  */}
                       <Grid item xs={6} style={{ display: 'flex', flexDirection: 'column'}}>
                         <h2>Feito ;)</h2>
-                        {this.state.tarefas?.map(res => <p style={listItemStyle}>{res.name}</p>)}
+
+                        <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                          {this.state.tarefas?.filter(x => x.status == 'DONE').map(res => 
+                          (
+                            <ListItem>
+                              <ListItemAvatar>
+                                <Avatar>
+                                  <ImageIcon />
+                                </Avatar>
+                              </ListItemAvatar>
+                              <ListItemText primary={res.name} secondary={res.description}/>
+                            </ListItem>
+
+                          ))}
+                          </List>
                       </Grid>
                     </Grid>
                   </Grid>
               </Grid>
-          </Box>
 
-          <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
             <SpeedDial
               ariaLabel="SpeedDial basic example"
               sx={{ position: 'absolute', bottom: 16, right: 16 }}
@@ -130,6 +186,9 @@ class Tarefas extends React.Component {
               ))}
             </SpeedDial>
           </Box>
+
+          <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
+          </Box>
           <Modal
             open={this.state.modalIsopen}
             onClose={this.handleClose}
@@ -137,14 +196,25 @@ class Tarefas extends React.Component {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              {/* fazer igual ao login */}
-              <TextField id="outlined-basic" label="nome" variant="outlined" value={this.state.newTask.name} 
-              onChange={(e) => this.setState({ newTask: { ...this.state.newTask, name: e.target.value }})} 
-              />
-              <TextField id="outlined-basic" label="descricao" variant="outlined" value={this.state.newTask.description} 
-              onChange={(e) => this.setState({ newTask: { ...this.state.newTask, description: e.target.value}})}  
-              />
-              <Button variant="contained" onClick={()=>this.enviar()}  >Enviar</Button>
+              <Grid container>
+                <Grid item xs={12}> 
+                  <h2>Cria uma task</h2>
+                  <TextField id="outlined-basic" label="nome" variant="outlined" value={this.state.newTask.name} 
+                  onChange={(e) => this.setState({ newTask: { ...this.state.newTask, name: e.target.value }})} 
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <TextField id="outlined-basic" label="descricao" variant="outlined" value={this.state.newTask.description} 
+                  onChange={(e) => this.setState({ newTask: { ...this.state.newTask, description: e.target.value}})}  
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Button variant="contained" onClick={()=>this.createtask()}  >Enviar</Button>
+                </Grid>
+
+              </Grid>
             </Box>
           </Modal>
         </div>

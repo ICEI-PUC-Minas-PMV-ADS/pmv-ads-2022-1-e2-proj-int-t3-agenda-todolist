@@ -46,3 +46,27 @@ export const get = async (url) => {
         }).catch(err => reject())
     })
 }
+
+
+export const del = async (url) => {
+    const requestOptions = {
+        method: 'DELETE',
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+			Accept: 'application/json',
+			'Content-Type': 'application/json',
+		}
+    };
+
+    return new Promise((resolve, reject) => {  
+        fetch(`${API_HOST}/${url}`, requestOptions).then(response => {  
+            if(response.status === 200) {
+                console.log(response)
+                resolve()
+            }
+            if(response.status === 400 || response.status === 404) {
+                reject()
+            }
+        }).catch(err => reject())
+    })
+}
