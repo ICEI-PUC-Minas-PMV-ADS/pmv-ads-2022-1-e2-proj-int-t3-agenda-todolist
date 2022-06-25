@@ -8,6 +8,7 @@ namespace agenda_api.Entities
             Id = task.Id;
             Name = task.Name;
             Description = task.Description;
+            Status = task.Status;
             UserId = task.user_id;
             BoardId = task.board_id;
             CreatedDate = task.CreatedDate;
@@ -19,6 +20,8 @@ namespace agenda_api.Entities
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public string Status { get; set; }
 
         public int UserId { get; set; }
 

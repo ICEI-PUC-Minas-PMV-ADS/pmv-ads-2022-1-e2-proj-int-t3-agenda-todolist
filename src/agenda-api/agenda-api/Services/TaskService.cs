@@ -48,7 +48,9 @@ namespace agenda_api.Services
                         throw new Exception("Nenhum board encontrado");
                     }
                 }
-                
+
+
+                if (task.Status == null) task.Status = "PENDING";
 
                 _taskRepository.SaveTask(task);
 

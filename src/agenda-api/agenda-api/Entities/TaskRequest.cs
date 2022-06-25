@@ -11,6 +11,7 @@ namespace agenda_api.Entities
         [Required]
         public string Description { get; set; }
 
+        [Required]
         public string Status { get; set; }
 
         [Required]

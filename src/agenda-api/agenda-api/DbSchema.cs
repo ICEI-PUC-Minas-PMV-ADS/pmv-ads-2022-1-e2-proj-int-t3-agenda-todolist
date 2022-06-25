@@ -34,7 +34,7 @@ namespace agenda_api
                 "Name VARCHAR ( 50 ) UNIQUE NOT NULL," +
                 "Description VARCHAR ( 50 ) NOT NULL," +
                 "TodoDate TIMESTAMP," +
-                "status VARCHAR ( 50 ) NOT NULL" +
+                "Status VARCHAR ( 50 ) NOT NULL," +
                 "CreatedDate TIMESTAMP NOT NULL," +
                 "board_id integer," +
                 "user_id integer," +
