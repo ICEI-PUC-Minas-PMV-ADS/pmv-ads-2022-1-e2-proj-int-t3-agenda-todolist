@@ -1,8 +1,12 @@
 # Registro de Testes de Usabilidade
 
-Após realizar os testes de usabilidade, obtém-se um relatório a partir das análises realizadas. O Registro de Testes de Usabilidade é um relatório que contém as evidências dos testes e relatos dos usuários participantes, baseado no Plano de Testes de Usabilidade desenvolvido para os casos de uso desta etapa.
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Registro de Testes de Usabilidade”.
+| Caso de teste                                                      | Requisitos Associados | Resultado esperado                                                                                                                                                                                               | Resultado obtido |
+| ------------------------------------------------------------------ | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| CT01 - Prevenir Error                                              | RNF06                 | Ao clicar em "Remover terefa” apresentar ao usuário uma mensagem para validar o remoção.                                                                                                                         | OK               |
+| CT02 - Fornecer feedbacs informativos e marcar o finald e diálogos | RNF05                 | Verificar a existência de caixas de mensagens informativas e de fim.                                                                                                                                             | OK               |
+| CT03 – Usuário reconhecer, diagnosticar e recuperar seus erros     | RNF03                 | Informar ao usuário os campos obrigatórios, apresentar aviso de formulários.                                                                                                                                     | OK               |
+| CT-04 – Acessibilidade                                             | RNF08                 | Conferir se em todas as imagens, foi atribuído um texto alternativo, para que se por algum motivo a imagem não for carregada ou o usuário esteja utilizando leitor de tela ele consiga entender do que se trata. | Não implementado |
+| CT-05 – Reconhecer, em vez de recordar                             | RNF04                 | Prover interação por meio da imagem que significa o item que pretende representar.                                                                                                                               | OK               |
+| CT-06 – Consistência e Padronização                                | RNF07                 | Verificar a existência de padrões de uma mesma ação em diferentes momentos.                                                                                                                                      | OK               |
 
-> **Links Úteis**:
-> - [Ferramentas de Testes de Usabilidade](https://www.usability.gov/how-to-and-tools/resources/templates.html)

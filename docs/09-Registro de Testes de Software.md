@@ -6,7 +6,13 @@ Relatório com as evidências dos testes de software realizados no sistema pela 
 
 ## Avaliação
 
-Discorra sobre os resultados do teste. Ressaltando pontos fortes e fracos identificados na solução. Comente como o grupo pretende atacar esses pontos nas próximas iterações. Apresente as falhas detectadas e as melhorias geradas a partir dos resultados obtidos nos testes.
 
-> **Links Úteis**:
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
+| Caso de teste                       | Requisitos Associados | Resultado esperado                                                          | Resultado obtido                      |
+| ----------------------------------- | --------------------- | --------------------------------------------------------------------------- | ------------------------------------- |
+| Cadastro Usuário                    | RF001, RF002          | Cadastro usuário com retorno de OK                                          | Não implementado                      |
+| Login de usuário                    | RF001                 | Login de usuário e redirecionamento                                         | OK                                    |
+| Usuário deseja cadastrar um board   | RF004                 | Usuário cadastra um board de atividade                                      | Back - OK<br>Front - Não implementado |
+| Usuário deseja cadastrar uma tarefa | RF004                 | Usuário cadastra tarefa e ela é atualizada na pilha de tarefas pendentes    | OK                                    |
+| Usuário deseja concluir uma tarefa  | RF004                 | Usuário clica no botão de conclusão e a tarefa vai para pilha de concluídas | OK                                    |
+| Usuário deseja remover uma tarefa   | RF004                 | Usuário clica no botão de remoção e a tarefa é removida                     | OK                                    |
+

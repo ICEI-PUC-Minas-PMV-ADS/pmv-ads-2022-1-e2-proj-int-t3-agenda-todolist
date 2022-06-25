@@ -62,6 +62,9 @@ class Tarefas extends React.Component {
 
       this.state = { // defino o estado da aplicação
         modalIsopen: false,
+        taskToDelete: null,
+        confirmationModalIsopen: false,
+        newTaskError: false,
         usrError: false,
         newTask: {
           name: null,
@@ -82,18 +85,18 @@ class Tarefas extends React.Component {
     this.stateManager(null)
   }
 
-  deleteTask = async (id) => {
-    await del(`task/${id}`) 
+  deleteTask = async () => {
+    await del(`task/${this.state.taskToDelete}`) 
     .then(async (res) => { 
       await get('task').then(res => { 
         this.stateManager(res)
+        this.setState({ confirmationModalIsopen: false })
       }) 
     })
     .catch((err) => { // acha o erro caso dê
       console.log(err)
       this.setState({ usrError: true }) 
     })
-
   }
 
 
@@ -112,7 +115,6 @@ class Tarefas extends React.Component {
   }
 
   handleUpdateStatusTask = async (task) => {
-    console.log(task)
     this.setState({
       tarefas: [
         ...this.state.tarefas.map(x => {
@@ -127,18 +129,32 @@ class Tarefas extends React.Component {
 
   handleOpen = () =>  this.setState({ modalIsopen: true });
   handleClose = () =>  this.setState({ modalIsopen: false });
+  handleOpenConfirmation = (taskId) =>  {
+    this.setState({ taskToDelete: taskId })
+    this.setState({ confirmationModalIsopen: true })
+  };
+  handleCloseCOnfirmation = () =>  { 
+    this.setState({ taskToDelete: null })
+    this.setState({ confirmationModalIsopen: false })
+  };
   createtask =  async () =>{
-    await post('task', this.state.newTask) 
-    .then((res) => { 
-      get('task').then(res => { 
-        this.handleClose()
-        this.stateManager(res)
-      }) 
-    })
-    .catch((err) => { // acha o erro caso dê
-      console.log(err)
-      this.setState({ usrError: true }) 
-    })
+    if(this.state.newTask.description == null && this.state.newTask.name == null){
+      this.setState({ newTaskError: true }) 
+    }else{
+      this.setState({ newTaskError: false }) 
+      await post('task', this.state.newTask) 
+      .then((res) => { 
+        get('task').then(res => { 
+          this.handleClose()
+          this.stateManager(res)
+        }) 
+      })
+      .catch((err) => { // acha o erro caso dê
+        console.log(err)
+        this.setState({ usrError: true }) 
+      })
+    }
+    
   }
 
   stateManager(value) {
@@ -165,7 +181,7 @@ class Tarefas extends React.Component {
                           (
                             <ListItem 
                             secondaryAction={
-                              <IconButton edge="end" aria-label="delete" onClick={() =>{this.deleteTask(res.id)}}>
+                              <IconButton edge="end" aria-label="delete" onClick={() =>{this.handleOpenConfirmation(res.id)}}>
                                 <DeleteIcon />
                               </IconButton>
                             }>
@@ -197,7 +213,7 @@ class Tarefas extends React.Component {
                           (
                             <ListItem 
                             secondaryAction={
-                              <IconButton edge="end" aria-label="delete" onClick={() =>{this.deleteTask(res.id)}}>
+                              <IconButton edge="end" aria-label="delete" onClick={() =>{this.handleOpenConfirmation(res.id)}}>
                                 <DeleteIcon />
                               </IconButton>
                             }>
@@ -264,7 +280,27 @@ class Tarefas extends React.Component {
                 </Grid>
 
                 <Grid item xs={12}>
+                  {this.state.newTaskError ? <p>Preencha todas as informações para criar uma tarefa</p> : null}
                   <Button variant="contained" onClick={()=>this.createtask()}  >Enviar</Button>
+                </Grid>
+
+              </Grid>
+            </Box>
+          </Modal>
+
+          <Modal
+            open={this.state.confirmationModalIsopen}
+            onClose={this.handleCloseCOnfirmation}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Grid container>
+                <Grid item xs={12}> 
+                  <h2>Deseja confirmar a exclusão?</h2>
+                </Grid>
+                <Grid item xs={12}>
+                  <Button variant="contained" onClick={()=>this.deleteTask()}>OK</Button>
                 </Grid>
 
               </Grid>
