@@ -8,7 +8,7 @@ namespace agenda_api.Repository
     public class TaskRepository : BaseRepository<Task>, ITaskRepository
     {
         private string TABLENAME = "Task";
-        private string PARAMETERS = "Name, Description, CreatedDate, TodoDate";
+        private string PARAMETERS = "Name, Description, Status, CreatedDate, TodoDate";
 
         public TaskRepository()
         {
@@ -42,7 +42,7 @@ namespace agenda_api.Repository
         {
             int taskId;
             task.CreatedDate = new DateTime();
-            string values = $" '{task.Name}', '{task.Description}', '{task.CreatedDate}', '{task.TodoDate}' ";
+            string values = $" '{task.Name}', '{task.Description}', '{task.Status}', '{task.CreatedDate}', '{task.TodoDate}' ";
             try
             {
                 taskId = base.insertData(PARAMETERS, values);
@@ -58,19 +58,19 @@ namespace agenda_api.Repository
         public TaskRequest UpdateTask(int id, TaskRequest task)
         {
 
-            string values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}'";
+            string values = $" Name= '{task.Name}', Description = '{task.Description}',Status = '{task.Status}', TodoDate = '{task.TodoDate}'";
 
             if (task.BoardId != 0 && task.UserId != 0)
             {
-                values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}', user_id = '{task.UserId}', board_id = '{task.BoardId}' ";
+                values = $" Name= '{task.Name}', Description = '{task.Description}', Status = '{task.Status}', TodoDate = '{task.TodoDate}', user_id = '{task.UserId}', board_id = '{task.BoardId}' ";
             }
             else if (task.BoardId != 0)
             {
-                values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}', board_id = '{task.BoardId}' ";
+                values = $" Name= '{task.Name}', Description = '{task.Description}', Status = '{task.Status}', TodoDate = '{task.TodoDate}', board_id = '{task.BoardId}' ";
             }
             else if (task.UserId != 0)
             {
-                values = $" Name= '{task.Name}', Description = '{task.Description}', TodoDate = '{task.TodoDate}', user_id = '{task.UserId}' ";
+                values = $" Name= '{task.Name}', Description = '{task.Description}', Status = '{task.Status}', TodoDate = '{task.TodoDate}', user_id = '{task.UserId}' ";
             }
 
             try

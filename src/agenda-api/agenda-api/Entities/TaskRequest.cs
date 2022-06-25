@@ -11,6 +11,8 @@ namespace agenda_api.Entities
         [Required]
         public string Description { get; set; }
 
+        public string Status { get; set; }
+
         [Required]
         [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
         public DateTime TodoDate { get; set; }

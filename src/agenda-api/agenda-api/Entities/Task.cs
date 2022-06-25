@@ -18,15 +18,17 @@ namespace agenda_api
             Description = taskRequest.Description;
             this.user_id = taskRequest.UserId;
             this.board_id = taskRequest.BoardId;
+            Status = taskRequest.Status;
             TodoDate = taskRequest.TodoDate;
         }
 
-        public Task(int id, string name, string description, DateTime createdDate, DateTime todoDate)
+        public Task(int id, string name, string description, string status, DateTime createdDate, DateTime todoDate)
         {
             Id = id;
             Name = name;
             Description = description;
             CreatedDate = createdDate;
+            Status = status;
             TodoDate = todoDate;
         }
 
@@ -34,6 +36,8 @@ namespace agenda_api
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public string Status { get; set; }
 
         public int user_id { get; set; }
 
